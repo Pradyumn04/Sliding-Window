@@ -1,0 +1,20 @@
+import java.io.*;
+class Subarray {
+    public static int maxSumSubarraySumKSize(int arr[], int k) {
+        int n = arr.length;
+        int ans = Integer.MIN_VALUE;
+        for(int i = 0; i < n - k + 1; i++) {
+            int sum = 0;
+            for(int j = i; j < i + k; j++) {
+                sum += arr[j];
+            }
+            ans = Math.max(ans, sum);
+        }
+        return ans;
+    }
+   
+    public static void main (String[] args) {
+        System.out.println(maxSumSubarraySumKSize(new int[] {2, 6, -9, 7, -1, 5, 4}, 3));
+        System.out.println(maxSumSubarraySumKSize(new int[] {5, 2, -4, 9, -8, 3, -1, 5}, 5));
+    }
+}
